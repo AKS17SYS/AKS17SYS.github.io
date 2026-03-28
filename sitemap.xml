@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://quiztempo.com/</loc></url>
+  <url><loc>https://quiztempo.com/en/</loc></url>
+
+  <url><loc>https://quiztempo.com/themes/</loc></url>
+  <url><loc>https://quiztempo.com/themes/histoire.html</loc></url>
+  <url><loc>https://quiztempo.com/themes/cinema.html</loc></url>
+  <url><loc>https://quiztempo.com/themes/sports.html</loc></url>
+
+  <url><loc>https://quiztempo.com/en/themes/</loc></url>
+  <url><loc>https://quiztempo.com/en/themes/history.html</loc></url>
+  <url><loc>https://quiztempo.com/en/themes/cinema.html</loc></url>
+  <url><loc>https://quiztempo.com/en/themes/sports.html</loc></url>
+
   <url><loc>https://quiztempo.com/contact.html</loc></url>
   <url><loc>https://quiztempo.com/privacy.html</loc></url>
   <url><loc>https://quiztempo.com/terms.html</loc></url>
