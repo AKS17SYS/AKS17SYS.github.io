@@ -3,29 +3,40 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — Quiz Tempo</title>
+  <title>Contact - Quiz Tempo</title>
   <meta name="description" content="Contact the Quiz Tempo team." />
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Sora:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <script defer src="js/main.js"></script>
 </head>
 <body>
   <header class="site-header">
     <div class="container row space-between center">
-      <a class="brand" href="./"><img src="assets/logo.svg" alt="" class="logo"><span class="brand-name">Quiz Tempo</span></a>
-      <nav class="site-nav"><a href="./">Home</a></nav>
+      <a class="brand" href="./"><img src="assets/logo.svg" alt="Quiz Tempo logo" class="logo"><span class="brand-name">Quiz Tempo</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="./">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
     </div>
   </header>
 
   <main class="section" id="main">
-    <div class="container narrow">
-      <h1>Contact</h1>
-      <p>Questions, feedback, press? Reach out below.</p>
+    <div class="container narrow stack-lg">
+      <div class="stack">
+        <p class="eyebrow">Contact</p>
+        <h1>Reach the Quiz Tempo team</h1>
+        <p class="muted">Questions, product feedback, bug reports, or business inquiries: we usually reply quickly by email.</p>
+      </div>
 
-      <div class="card p-lg">
-        <p><strong>Quickest:</strong> <a class="btn" href="mailto:help.aksystem@gmail.com">Email us</a></p>
+      <div class="card p-lg stack">
+        <p><strong>Direct email:</strong> <a class="btn" href="mailto:help.aks.system@gmail.com">help.aks.system@gmail.com</a></p>
         <hr class="sep" />
-        <form action="https://formsubmit.co/help.aksystem@gmail.com" method="POST">
+        <form action="https://formsubmit.co/help.aks.system@gmail.com" method="POST" class="stack">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="Quiz Tempo website contact">
           <label class="field">
@@ -40,8 +51,8 @@
             <span>Message</span>
             <textarea name="message" rows="6" required></textarea>
           </label>
-          <button class="btn primary">Send</button>
-          <p class="muted sm">We use a simple form gateway; do not include sensitive info.</p>
+          <button class="btn primary">Send message</button>
+          <p class="muted sm">Please avoid sharing sensitive personal information in this form.</p>
         </form>
       </div>
     </div>

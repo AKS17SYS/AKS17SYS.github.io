@@ -1,170 +1,257 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quiz Tempo — Play, Learn, Compete</title>
-  <meta name="description" content="Quiz Tempo: fast multiplayer quizzes across 50+ themes. Play with friends, climb leaderboards, and sharpen your knowledge." />
+  <title>Quiz Tempo - Le quiz compétitif nouvelle génération</title>
+  <meta name="description" content="Quiz Tempo transforme la culture générale en sessions courtes, compétitives et rejouables: solo, duels, classements, défi quotidien et progression visible." data-i18n-attr="content:meta.description" />
 
-  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Quiz Tempo — Play, Learn, Compete" />
-  <meta property="og:description" content="Fast multiplayer quizzes across 50+ themes. Play with friends and climb leaderboards." />
-  <meta property="og:image" content="https://quiztempo.com/assets/hero.png" />
+  <meta property="og:title" content="Quiz Tempo - Le quiz compétitif nouvelle génération" data-i18n-attr="content:meta.ogTitle" />
+  <meta property="og:description" content="Des parties rapides, des thèmes variés, des classements quotidiens et une vraie progression." data-i18n-attr="content:meta.ogDescription" />
+  <meta property="og:image" content="https://quiztempo.com/assets/screens/home.png" />
   <meta property="og:url" content="https://quiztempo.com/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Sora:wght@500;700&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
   <link rel="manifest" href="site.webmanifest" />
-  <meta name="theme-color" content="#0b0b12" />
+  <meta name="theme-color" content="#081833" />
   <link rel="preload" href="css/styles.css" as="style" />
   <link rel="stylesheet" href="css/styles.css" />
   <script defer src="js/main.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Aller au contenu</a>
 
-  <header class="site-header">
+  <header class="site-header" id="top">
     <div class="container row space-between center">
       <a class="brand" href="./">
-        <img src="assets/logo.svg" alt="" class="logo" />
+        <img src="assets/logo.svg" alt="Logo Quiz Tempo" class="logo" data-i18n-attr="alt:brand.logoAlt" />
         <span class="brand-name">Quiz Tempo</span>
       </a>
 
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
-        ☰
-      </button>
+      <div class="header-actions">
+        <div class="lang-switch" role="group" aria-label="Language switcher" data-i18n-attr="aria-label:lang.ariaGroup">
+          <button class="lang-btn" type="button" data-lang="fr" aria-pressed="true">FR</button>
+          <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
 
-      <nav id="site-nav" class="site-nav" aria-label="Primary">
-        <a href="#features">Features</a>
-        <a href="#themes">Themes</a>
-        <a href="#screens">Screens</a>
-        <a href="#faq">FAQ</a>
-        <a href="contact.html">Contact</a>
-        <a class="btn primary sm" href="https://apps.apple.com/app/idYOUR_APPLE_ID" rel="noopener">Download</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Ouvrir le menu" data-i18n="nav.menu" data-i18n-attr="aria-label:nav.menuAria">Menu</button>
+      </div>
+
+      <nav id="site-nav" class="site-nav" aria-label="Navigation principale" data-i18n-attr="aria-label:nav.primaryAria">
+        <a href="#features" data-i18n="nav.product">Produit</a>
+        <a href="#themes" data-i18n="nav.themes">Thèmes</a>
+        <a href="#screens" data-i18n="nav.screens">Captures</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a class="btn primary sm" href="https://apps.apple.com/app/idYOUR_APPLE_ID" rel="noopener" data-i18n="nav.download">Télécharger</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container grid-2">
-        <div class="hero-copy">
-          <h1>Play smarter, faster quizzes.</h1>
-          <p class="lead">Challenge friends or match online across <strong>50+ themes</strong>. Power-ups, streaks, and global leaderboards — all in one sleek app.</p>
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Le quiz qui donne envie de revenir chaque jour</p>
+          <h1 data-i18n="hero.title">Culture générale, adrénaline et progression visible.</h1>
+          <p class="lead" data-i18n="hero.lead">Quiz Tempo n'est pas un simple catalogue de questions. C'est une boucle mobile claire: tu joues vite, tu montes au classement, tu débloques du contenu, puis tu reviens pour le défi quotidien.</p>
 
           <div class="cta-row">
-            <a class="store-badge" href="https://apps.apple.com/app/idYOUR_APPLE_ID" rel="noopener" aria-label="Download on the App Store">
-              <svg viewBox="0 0 135 40" width="160" height="48" aria-hidden="true"><rect rx="8" width="135" height="40"></rect><text x="20" y="26" font-size="12" fill="currentColor">Download on the App Store</text></svg>
-            </a>
-            <a class="store-badge" href="https://play.google.com/store/apps/details?id=YOUR_ANDROID_ID" rel="noopener" aria-label="Get it on Google Play">
-              <svg viewBox="0 0 135 40" width="160" height="48" aria-hidden="true"><rect rx="8" width="135" height="40"></rect><text x="24" y="26" font-size="12" fill="currentColor">Get it on Google Play</text></svg>
-            </a>
-            <a class="btn ghost" href="https://app.quiztempo.com" rel="noopener">Play on the Web</a>
+            <a class="btn primary" href="https://apps.apple.com/app/idYOUR_APPLE_ID" rel="noopener" data-i18n="hero.ctaPrimary">Télécharger sur iOS</a>
+            <a class="btn" href="#themes" data-i18n="hero.ctaSecondary">Voir les thèmes</a>
           </div>
 
-          <ul class="bullet-checks">
-            <li>No account needed to start</li>
-            <li>Quick matches &amp; friend duels</li>
-            <li>Ad-supported with optional premium</li>
-          </ul>
+          <div class="hero-stats" aria-label="Points clés du produit" data-i18n-attr="aria-label:hero.statsAria">
+            <article>
+              <strong data-i18n="hero.stat1Value">17</strong>
+              <span data-i18n="hero.stat1Label">univers de thèmes</span>
+            </article>
+            <article>
+              <strong data-i18n="hero.stat2Value">Solo + Duel</strong>
+              <span data-i18n="hero.stat2Label">session courte ou match entre amis</span>
+            </article>
+            <article>
+              <strong data-i18n="hero.stat3Value">Daily / Weekly / Monthly / Yearly</strong>
+              <span data-i18n="hero.stat3Label">classements et récompenses récurrents</span>
+            </article>
+          </div>
+
+          <div class="pill-row">
+            <span class="pill" data-i18n="hero.pill1">Modes: Classique, Blitz, Survie</span>
+            <span class="pill" data-i18n="hero.pill2">Boosters: 50/50, temps, score</span>
+            <span class="pill" data-i18n="hero.pill3">Social: amis, messages, défis</span>
+          </div>
         </div>
 
-        <div class="hero-media">
-          <img src="assets/hero.png" alt="Quiz Tempo app preview" loading="eager" />
+        <div class="hero-visual reveal" style="--delay: 120ms;">
+          <div class="phone-stack" aria-hidden="true">
+            <img src="assets/screens/home.png" alt="Écran d'accueil Quiz Tempo" class="shot shot-main" loading="eager" data-i18n-attr="alt:screens.altHome" />
+            <img src="assets/screens/question.png" alt="Écran de question Quiz Tempo" class="shot shot-back" loading="lazy" data-i18n-attr="alt:screens.altQuestion" />
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FEATURES -->
     <section id="features" class="section">
       <div class="container">
-        <h2 class="section-title">Why you’ll love it</h2>
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="features.eyebrow">Positionnement produit</p>
+          <h2 class="section-title" data-i18n="features.title">Pensé comme un jeu live, pas comme un quiz statique</h2>
+        </div>
+
         <div class="features-grid">
-          <article class="card">
-            <h3>Multiplayer</h3>
-            <p>Match with friends or auto-pair. Fast rounds, no waiting.</p>
+          <article class="card reveal">
+            <h3 data-i18n="features.c1t">Rythme Mobile-First</h3>
+            <p data-i18n="features.c1d">Parties courtes, lisibles, rejouables. Tu peux jouer 2 minutes ou enchaîner une vraie session sans friction.</p>
           </article>
-          <article class="card">
-            <h3>50+ Themes</h3>
-            <p>From History to Pop Culture. Rotate through fresh packs.</p>
+          <article class="card reveal" style="--delay: 80ms;">
+            <h3 data-i18n="features.c2t">Compétition Continue</h3>
+            <p data-i18n="features.c2d">Classements quotidiens, hebdomadaires, mensuels et annuels, avec un objectif clair à chaque retour dans l'app.</p>
           </article>
-          <article class="card">
-            <h3>Power-ups</h3>
-            <p>50/50, extra time, streak multipliers — outsmart the clock.</p>
+          <article class="card reveal" style="--delay: 140ms;">
+            <h3 data-i18n="features.c3t">Progression Concrète</h3>
+            <p data-i18n="features.c3d">Pièces, récompenses, badges, profils personnalisés: chaque partie alimente une progression visible immédiatement.</p>
           </article>
-          <article class="card">
-            <h3>Leaderboards</h3>
-            <p>Climb weekly and all-time boards. Earn badges &amp; crowns.</p>
+          <article class="card reveal">
+            <h3 data-i18n="features.c4t">Modes de Jeu Différenciés</h3>
+            <p data-i18n="features.c4d">Classique pour la régularité, Blitz pour l'intensité, Survie pour la tension: un même coeur, plusieurs sensations.</p>
           </article>
-          <article class="card">
-            <h3>Offline Friendly</h3>
-            <p>Practice solo and keep your streak alive on the go.</p>
+          <article class="card reveal" style="--delay: 80ms;">
+            <h3 data-i18n="features.c5t">Social Léger mais Utile</h3>
+            <p data-i18n="features.c5d">Amis, messages, défis: juste ce qu'il faut pour créer de la rivalité sans complexifier l'expérience.</p>
           </article>
-          <article class="card">
-            <h3>Fair &amp; Fun</h3>
-            <p>Balanced question pools, designed for quick fun sessions.</p>
+          <article class="card reveal" style="--delay: 140ms;">
+            <h3 data-i18n="features.c6t">Économie Cadencée</h3>
+            <p data-i18n="features.c6d">Boutique, boosters et récompenses cadrés pour maintenir le fun et le sentiment de montée en puissance.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- THEMES -->
-    <section id="themes" class="section alt">
-      <div class="container">
-        <h2 class="section-title">Popular themes</h2>
-        <p class="muted">We’ll list all themes here — these are examples:</p>
-        <ul class="theme-tags">
-          <li>General Knowledge</li><li>Geography</li><li>History</li><li>Science</li><li>Movies</li><li>Music</li>
-          <li>Sports</li><li>TV Series</li><li>Video Games</li><li>Art</li><li>Literature</li><li>Logos</li>
-        </ul>
-        <div class="center mt-20">
-          <a class="btn" href="https://app.quiztempo.com">Browse all themes in-app</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SCREENSHOTS -->
-    <section id="screens" class="section">
-      <div class="container">
-        <h2 class="section-title">Screenshots</h2>
-        <div class="screens-grid">
-          <img src="assets/screens/shot1.jpg" alt="Home screen" loading="lazy">
-          <img src="assets/screens/shot2.jpg" alt="Theme selection" loading="lazy">
-          <img src="assets/screens/shot3.jpg" alt="Multiplayer match" loading="lazy">
-          <img src="assets/screens/shot4.jpg" alt="Question view" loading="lazy">
-          <img src="assets/screens/shot5.jpg" alt="Results" loading="lazy">
-          <img src="assets/screens/shot6.jpg" alt="Profile & badges" loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <!-- VIDEO -->
     <section class="section alt">
       <div class="container">
-        <h2 class="section-title">See it in action</h2>
-        <div class="video-embed">
-          <iframe title="Quiz Tempo demo" src="https://www.youtube.com/embed/VIDEO_ID" loading="lazy" frameborder="0" allowfullscreen></iframe>
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="loop.eyebrow">Boucle d'engagement</p>
+          <h2 class="section-title" data-i18n="loop.title">Une routine simple qui tient dans la durée</h2>
+        </div>
+
+        <div class="loop-grid">
+          <article class="card reveal">
+            <h3 data-i18n="loop.s1t">1. Choisir</h3>
+            <p data-i18n="loop.s1d">Tu sélectionnes un thème ou un mode selon ton temps et ton niveau d'énergie.</p>
+          </article>
+          <article class="card reveal" style="--delay: 60ms;">
+            <h3 data-i18n="loop.s2t">2. Jouer</h3>
+            <p data-i18n="loop.s2d">Tu réponds vite, tu optimises tes boosters, tu gagnes des points et des pièces.</p>
+          </article>
+          <article class="card reveal" style="--delay: 120ms;">
+            <h3 data-i18n="loop.s3t">3. Progresser</h3>
+            <p data-i18n="loop.s3d">Tu améliores ton rang, ton profil, tes badges et ton inventaire en quelques minutes.</p>
+          </article>
+          <article class="card reveal" style="--delay: 180ms;">
+            <h3 data-i18n="loop.s4t">4. Revenir</h3>
+            <p data-i18n="loop.s4d">Défi quotidien, paliers de classement et objectifs sociaux te donnent une raison claire de revenir.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section">
+    <section id="themes" class="section">
       <div class="container">
-        <h2 class="section-title">FAQ</h2>
-        <details class="faq-item">
-          <summary>Is it free?</summary>
-          <p>Yes. Ads keep it free. A premium plan removes ads and adds perks.</p>
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="themes.eyebrow">Catalogues réels</p>
+          <h2 class="section-title" data-i18n="themes.title">17 univers de thèmes déjà structurés</h2>
+          <p class="muted" data-i18n="themes.subtitle">Extraits des thèmes et sous-thèmes actuellement présents dans vos données produit.</p>
+        </div>
+
+        <div class="theme-columns reveal" style="--delay: 80ms;">
+          <article class="theme-group">
+            <h3 data-i18n="themes.g1">Univers majeurs</h3>
+            <ul class="theme-tags">
+              <li>Arts</li><li>Business</li><li>Éducation</li><li>Divertissement</li><li>Cuisine</li><li>Jeux vidéo</li>
+              <li>Culture générale</li><li>Histoire</li><li>Littérature</li><li>Cinéma</li><li>Musique</li><li>Nature</li>
+              <li>Science</li><li>Sports</li><li>Technologie</li><li>Télévision</li><li>Monde</li>
+            </ul>
+          </article>
+
+          <article class="theme-group">
+            <h3 data-i18n="themes.g2">Sous-thèmes populaires (réels)</h3>
+            <ul class="theme-tags">
+              <li>Architecture</li><li>Impressionnisme</li><li>Mathématiques avancées</li><li>Étymologie</li><li>Langues du monde</li>
+              <li>Grand Theft Auto</li><li>League of Legends</li><li>TikTok</li><li>YouTube</li><li>Égypte antique</li>
+              <li>Guerre froide</li><li>Révolution française</li><li>Harry Potter</li><li>Marvel Comics</li><li>Films des années 2000</li>
+              <li>Les Oscars</li><li>Musique des années 2010</li><li>Corps humain</li><li>Tableau périodique</li><li>Premier League</li>
+              <li>Ligue des champions</li><li>Formule 1</li><li>Apple</li><li>Culture Internet</li><li>Séries HBO</li>
+              <li>Star Trek</li><li>Monuments</li><li>Capitales du monde</li><li>Paris</li><li>New York</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="screens" class="section alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="screens.eyebrow">Preuves visuelles</p>
+          <h2 class="section-title" data-i18n="screens.title">Accueil, jeu, boutique, messages, résultats, ranking</h2>
+        </div>
+
+        <div class="screens-shell reveal" style="--delay: 80ms;">
+          <button class="slide-btn" id="slide-prev" aria-label="Voir les captures précédentes" data-i18n-attr="aria-label:screens.prevAria">&larr;</button>
+          <div class="screens-track" id="screens-track">
+            <img src="assets/screens/home.png" alt="Accueil et hubs principaux" loading="lazy" data-i18n-attr="alt:screens.altHomeTrack" />
+            <img src="assets/screens/play.png" alt="Sélection de mode de jeu" loading="lazy" data-i18n-attr="alt:screens.altPlay" />
+            <img src="assets/screens/shop.png" alt="Boutique et progression" loading="lazy" data-i18n-attr="alt:screens.altShop" />
+            <img src="assets/screens/messages.png" alt="Messagerie et interactions" loading="lazy" data-i18n-attr="alt:screens.altMessages" />
+            <img src="assets/screens/question.png" alt="Question en partie" loading="lazy" data-i18n-attr="alt:screens.altQuestionTrack" />
+            <img src="assets/screens/correct.png" alt="Feedback de bonne réponse" loading="lazy" data-i18n-attr="alt:screens.altCorrect" />
+            <img src="assets/screens/results.png" alt="Écran de résultats" loading="lazy" data-i18n-attr="alt:screens.altResults" />
+            <img src="assets/screens/ranking.png" alt="Classement et profil joueur" loading="lazy" data-i18n-attr="alt:screens.altRanking" />
+          </div>
+          <button class="slide-btn" id="slide-next" aria-label="Voir les captures suivantes" data-i18n-attr="aria-label:screens.nextAria">&rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container cta-panel reveal">
+        <div>
+          <p class="eyebrow" data-i18n="cta.eyebrow">Prêt à lancer la version publique ?</p>
+          <h2 data-i18n="cta.title">Quiz Tempo est positionné pour convertir dès la fiche store.</h2>
+          <p data-i18n="cta.body">Copie claire, proposition de valeur nette, preuves produit visibles, et structure SEO propre: on est sur une base solide pour la mise en ligne.</p>
+        </div>
+        <a class="btn primary" href="https://apps.apple.com/app/idYOUR_APPLE_ID" rel="noopener" data-i18n="cta.button">Télécharger maintenant</a>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container narrow">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="faq.eyebrow">FAQ</p>
+          <h2 class="section-title" data-i18n="faq.title">Questions fréquentes</h2>
+        </div>
+
+        <details class="faq-item reveal">
+          <summary data-i18n="faq.q1">Quiz Tempo est-il gratuit ?</summary>
+          <p data-i18n="faq.a1">Oui. L'application est gratuite au téléchargement, avec des options premium et des achats in-app facultatifs.</p>
         </details>
-        <details class="faq-item">
-          <summary>Can I play with friends?</summary>
-          <p>Yes! Create a match or accept invites. Quick and easy.</p>
+        <details class="faq-item reveal" style="--delay: 60ms;">
+          <summary data-i18n="faq.q2">Peut-on jouer solo et en duel ?</summary>
+          <p data-i18n="faq.a2">Oui. Le jeu combine entraînement solo, match compétitif et interactions sociales avec amis et défis.</p>
         </details>
-        <details class="faq-item">
-          <summary>Will new themes be added?</summary>
-          <p>We rotate new packs regularly. Suggest themes via the contact page!</p>
+        <details class="faq-item reveal" style="--delay: 100ms;">
+          <summary data-i18n="faq.q3">Le contenu est-il régulièrement alimenté ?</summary>
+          <p data-i18n="faq.a3">La structure produit est pensée pour le retour quotidien: défi journalier, classements récurrents et variété de thèmes.</p>
+        </details>
+        <details class="faq-item reveal" style="--delay: 140ms;">
+          <summary data-i18n="faq.q4">Qu'est-ce qui différencie Quiz Tempo d'un quiz classique ?</summary>
+          <p data-i18n="faq.a4">La valeur vient du rythme de jeu, de la boucle de progression et de la couche compétitive, pas seulement d'une base de questions.</p>
         </details>
       </div>
     </section>
@@ -173,10 +260,10 @@
   <footer class="site-footer">
     <div class="container row space-between wrap">
       <small>© <span id="year"></span> Quiz Tempo</small>
-      <nav class="footer-nav">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="contact.html">Contact</a>
+      <nav class="footer-nav" aria-label="Pied de page" data-i18n-attr="aria-label:footer.aria">
+        <a href="privacy.html" data-i18n="footer.privacy">Confidentialité</a>
+        <a href="terms.html" data-i18n="footer.terms">Conditions</a>
+        <a href="contact.html" data-i18n="footer.contact">Contact</a>
       </nav>
     </div>
   </footer>
@@ -186,11 +273,11 @@
     "@context":"https://schema.org",
     "@type":"MobileApplication",
     "name":"Quiz Tempo",
-    "operatingSystem":"iOS, Android",
+    "operatingSystem":"iOS",
     "applicationCategory":"GameApplication",
-    "offers": {"@type":"Offer","price":"0","priceCurrency":"EUR"},
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},
     "url":"https://quiztempo.com/",
-    "image":"https://quiztempo.com/assets/hero.png"
+    "image":"https://quiztempo.com/assets/screens/home.png"
   }
   </script>
 </body>
