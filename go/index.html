@@ -85,6 +85,10 @@
         chooseLead: '54 885 questions de culture générale. Choisissez votre plateforme.',
         soonTitle: 'Bientôt disponible',
         soonText: 'Quiz Tempo arrive très bientôt. Suivez le lancement pour être prévenu en premier.',
+        soonIos: 'Bientôt sur iPhone',
+        soonAndroid: 'Bientôt sur Android',
+        soonIosText: 'Quiz Tempo vient de sortir sur Android. La version iPhone suit très vite — suivez-nous pour être prévenu.',
+        soonAndroidText: 'Quiz Tempo vient de sortir sur iPhone. La version Android suit très vite — suivez-nous pour être prévenu.',
         back: '← Retour sur quiztempo.com',
         home: '../',
         ig: 'https://instagram.com/quiztempo.fr',
@@ -98,6 +102,10 @@
         chooseLead: '54,885 general knowledge questions. Pick your platform.',
         soonTitle: 'Coming soon',
         soonText: 'Quiz Tempo lands very soon. Follow the launch to hear about it first.',
+        soonIos: 'Coming soon on iPhone',
+        soonAndroid: 'Coming soon on Android',
+        soonIosText: 'Quiz Tempo just landed on Android. The iPhone version follows shortly — follow us to hear about it first.',
+        soonAndroidText: 'Quiz Tempo just landed on iPhone. The Android version follows shortly — follow us to hear about it first.',
         back: '← Back to quiztempo.com',
         home: '../en/',
         ig: 'https://instagram.com/quiz.tempo',
@@ -189,22 +197,32 @@
       }
     });
 
-    if (!anyReleased) {
+    if (platform === 'ios' || platform === 'android') {
+      if (STORES[platform].released) {
+        track(platform, 'redirect');
+        show('go-redirect');
+        var manual = document.getElementById('go-manual');
+        if (manual) manual.href = STORES[platform].url;
+        window.location.replace(STORES[platform].url);
+        return;
+      }
+      // This visitor's own store isn't live yet. Say so about THEIR platform —
+      // offering them the other store's button would be useless on their device.
+      if (anyReleased) {
+        set('go-soon-title', platform === 'ios' ? t.soonIos : t.soonAndroid);
+        set('go-soon-text', platform === 'ios' ? t.soonIosText : t.soonAndroidText);
+      }
       track(platform, 'prelaunch');
       show('go-soon');
       return;
     }
 
-    if ((platform === 'ios' || platform === 'android') && STORES[platform].released) {
-      track(platform, 'redirect');
-      show('go-redirect');
-      var manual = document.getElementById('go-manual');
-      if (manual) manual.href = STORES[platform].url;
-      window.location.replace(STORES[platform].url);
+    // Desktop: show whatever is live, or the holding screen if nothing is.
+    if (!anyReleased) {
+      track(platform, 'prelaunch');
+      show('go-soon');
       return;
     }
-
-    // Desktop, or a platform whose store isn't live yet: let them choose.
     track(platform, 'choice');
     show('go-choice');
   })();
