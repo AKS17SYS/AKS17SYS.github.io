@@ -21,14 +21,14 @@
 
       <!-- Shown while we decide where to send the visitor. -->
       <div id="go-redirect" hidden>
-        <h1>Ouverture du store…</h1>
-        <p class="muted">Si rien ne se passe, <a id="go-manual" href="../">choisissez votre plateforme</a>.</p>
+        <h1 id="go-redirect-title">Ouverture du store…</h1>
+        <p class="muted"><span id="go-manual-before">Si rien ne se passe, </span><a id="go-manual" href="../">choisissez votre plateforme</a>.</p>
       </div>
 
       <!-- Shown on desktop and on unknown platforms. -->
       <div id="go-choice" hidden>
-        <h1>Télécharger Quiz Tempo</h1>
-        <p class="lead">54 885 questions de culture générale. Choisissez votre plateforme.</p>
+        <h1 id="go-choice-title">Télécharger Quiz Tempo</h1>
+        <p class="lead" id="go-choice-lead">54 885 questions de culture générale. Choisissez votre plateforme.</p>
         <div class="cta-row go-cta">
           <a class="btn primary" id="go-ios" hidden rel="noopener">App Store — iOS</a>
           <a class="btn primary" id="go-android" hidden rel="noopener">Google Play — Android</a>
@@ -37,15 +37,15 @@
 
       <!-- Shown before a platform is released. -->
       <div id="go-soon" hidden>
-        <h1>Bientôt disponible</h1>
+        <h1 id="go-soon-title">Bientôt disponible</h1>
         <p class="lead" id="go-soon-text">Quiz Tempo arrive très bientôt. Suivez le lancement pour être prévenu en premier.</p>
         <div class="cta-row go-cta">
-          <a class="btn primary" href="https://instagram.com/quiz.tempo" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a class="btn" href="https://www.tiktok.com/@quiztempoapp" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a class="btn primary" id="go-ig" href="https://instagram.com/quiztempo.fr" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="btn" id="go-tt" href="https://www.tiktok.com/@quiztempoapp.fr" target="_blank" rel="noopener noreferrer">TikTok</a>
         </div>
       </div>
 
-      <p class="go-back"><a href="../">← Retour sur quiztempo.com</a></p>
+      <p class="go-back"><a id="go-back-link" href="../">← Retour sur quiztempo.com</a></p>
     </div>
   </main>
 
@@ -72,6 +72,37 @@
     };
 
     var TRACK_ENDPOINT = 'https://europe-west1-quizgame-abeno17.cloudfunctions.net/trackGoClickV1';
+
+    /* One page serves both language trees, so it has to speak the visitor's
+       language and point at the matching pair of social accounts. */
+    var I18N = {
+      fr: {
+        redirectTitle: 'Ouverture du store…',
+        manualBefore: 'Si rien ne se passe, ',
+        manualLink: 'choisissez votre plateforme',
+        chooseTitle: 'Télécharger Quiz Tempo',
+        chooseLead: '54 885 questions de culture générale. Choisissez votre plateforme.',
+        soonTitle: 'Bientôt disponible',
+        soonText: 'Quiz Tempo arrive très bientôt. Suivez le lancement pour être prévenu en premier.',
+        back: '← Retour sur quiztempo.com',
+        home: '../',
+        ig: 'https://instagram.com/quiztempo.fr',
+        tt: 'https://www.tiktok.com/@quiztempoapp.fr'
+      },
+      en: {
+        redirectTitle: 'Opening the store…',
+        manualBefore: 'If nothing happens, ',
+        manualLink: 'pick your platform',
+        chooseTitle: 'Download Quiz Tempo',
+        chooseLead: '54,885 general knowledge questions. Pick your platform.',
+        soonTitle: 'Coming soon',
+        soonText: 'Quiz Tempo lands very soon. Follow the launch to hear about it first.',
+        back: '← Back to quiztempo.com',
+        home: '../en/',
+        ig: 'https://instagram.com/quiz.tempo',
+        tt: 'https://www.tiktok.com/@quiztempoapp'
+      }
+    };
 
     var params = new URLSearchParams(window.location.search);
 
@@ -112,6 +143,34 @@
         if (el) el.hidden = node !== id;
       });
     }
+
+    // Every CTA slug ends in _fr or _en, so the referring page tells us the
+    // language. Fall back to the browser only when it doesn't (e.g. src=404).
+    function detectLang() {
+      if (/_en$/.test(src)) return 'en';
+      if (/_fr$/.test(src)) return 'fr';
+      return /^fr\b/i.test(navigator.language || '') ? 'fr' : 'en';
+    }
+
+    var lang = detectLang();
+    var t = I18N[lang];
+
+    document.documentElement.lang = lang;
+    var set = function (id, value) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = value;
+    };
+    set('go-soon-title', t.soonTitle);
+    set('go-soon-text', t.soonText);
+    set('go-back-link', t.back);
+    set('go-choice-title', t.chooseTitle);
+    set('go-choice-lead', t.chooseLead);
+    set('go-redirect-title', t.redirectTitle);
+    document.getElementById('go-back-link').href = t.home;
+    document.getElementById('go-ig').href = t.ig;
+    document.getElementById('go-tt').href = t.tt;
+    set('go-manual', t.manualLink);
+    set('go-manual-before', t.manualBefore);
 
     var platform = detect();
     var anyReleased = STORES.ios.released || STORES.android.released;
