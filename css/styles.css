@@ -1,4 +1,6 @@
 :root {
+  color-scheme: light dark;
+
   --bg: #f4f8ff;
   --ink: #0f1a2e;
   --muted: #52607a;
@@ -10,6 +12,57 @@
   --accent: #00bfa5;
   --accent-2: #ff7a59;
   --shadow: 0 18px 45px rgba(20, 40, 90, 0.12);
+
+  /* Surfaces and washes that used to be hardcoded. They all have to flip for
+     dark mode, so they live here rather than at their point of use. */
+  --wash-1: rgba(15, 123, 255, 0.12);
+  --wash-2: rgba(0, 191, 165, 0.15);
+  --header-bg: rgba(244, 248, 255, 0.9);
+  --header-shadow: 0 8px 26px rgba(20, 40, 90, 0.09);
+  --glass: rgba(255, 255, 255, 0.74);
+  --glass-soft: rgba(255, 255, 255, 0.7);
+  --footer-bg: rgba(255, 255, 255, 0.65);
+  --nav-hover: rgba(15, 123, 255, 0.08);
+  --alt-top: rgba(255, 255, 255, 0.65);
+  --alt-bottom: rgba(238, 244, 255, 0.8);
+  --social-hover: rgba(15, 123, 255, 0.35);
+  --bezel: #0f1a2e;
+  --shot-shadow: 0 24px 44px rgba(12, 24, 48, 0.2);
+  --track-shadow: 0 18px 30px rgba(12, 24, 48, 0.24);
+}
+
+/* Dark mode follows the OS preference. Every pair below clears WCAG AA;
+   the light palette above does not (accent-on-bg sits at 2.19). */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a1020;
+    --ink: #e9eefb;
+    --muted: #9fadc9;
+    --surface: #131b30;
+    --surface-soft: #1b2440;
+    --line: #2a3654;
+    --primary: #4d9bff;
+    --primary-ink: #04101f;
+    --accent: #2fd9bf;
+    --accent-2: #ff9576;
+    --shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
+
+    --wash-1: rgba(15, 123, 255, 0.2);
+    --wash-2: rgba(0, 191, 165, 0.14);
+    --header-bg: rgba(10, 16, 32, 0.9);
+    --header-shadow: 0 8px 26px rgba(0, 0, 0, 0.45);
+    --glass: rgba(255, 255, 255, 0.06);
+    --glass-soft: rgba(255, 255, 255, 0.05);
+    --footer-bg: rgba(255, 255, 255, 0.03);
+    --nav-hover: rgba(77, 155, 255, 0.16);
+    --alt-top: rgba(255, 255, 255, 0.03);
+    --alt-bottom: rgba(10, 16, 32, 0.6);
+    --social-hover: rgba(77, 155, 255, 0.5);
+    /* A near-black bezel would vanish into the page, so it lifts off the bg. */
+    --bezel: #26324e;
+    --shot-shadow: 0 24px 44px rgba(0, 0, 0, 0.55);
+    --track-shadow: 0 18px 30px rgba(0, 0, 0, 0.5);
+  }
 }
 
 * {
@@ -25,8 +78,8 @@ body {
   font-family: "Manrope", "Segoe UI", sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(circle at 15% 10%, rgba(15, 123, 255, 0.12), transparent 35%),
-    radial-gradient(circle at 85% 0%, rgba(0, 191, 165, 0.15), transparent 42%),
+    radial-gradient(circle at 15% 10%, var(--wash-1), transparent 35%),
+    radial-gradient(circle at 85% 0%, var(--wash-2), transparent 42%),
     var(--bg);
   line-height: 1.6;
 }
@@ -104,9 +157,9 @@ a:hover {
 }
 
 .site-header.scrolled {
-  background: rgba(244, 248, 255, 0.9);
+  background: var(--header-bg);
   border-color: var(--line);
-  box-shadow: 0 8px 26px rgba(20, 40, 90, 0.09);
+  box-shadow: var(--header-shadow);
   backdrop-filter: blur(10px);
 }
 
@@ -141,7 +194,7 @@ a:hover {
   padding: 4px;
   border-radius: 12px;
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.74);
+  background: var(--glass);
 }
 
 .lang-btn {
@@ -175,7 +228,7 @@ a:hover {
 
 .site-nav a:hover {
   text-decoration: none;
-  background: rgba(15, 123, 255, 0.08);
+  background: var(--nav-hover);
 }
 
 .nav-toggle {
@@ -193,7 +246,7 @@ a:hover {
 }
 
 .section.alt {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(238, 244, 255, 0.8));
+  background: linear-gradient(180deg, var(--alt-top), var(--alt-bottom));
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -273,7 +326,7 @@ a:hover {
 
 .pill {
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--glass-soft);
   color: var(--ink);
   padding: 7px 12px;
   border-radius: 999px;
@@ -295,8 +348,8 @@ a:hover {
 
 .shot {
   border-radius: 30px;
-  border: 8px solid #0f1a2e;
-  box-shadow: 0 24px 44px rgba(12, 24, 48, 0.2);
+  border: 8px solid var(--bezel);
+  box-shadow: var(--shot-shadow);
   max-width: 100%;
   display: block;
 }
@@ -429,9 +482,9 @@ a:hover {
      attribute would win and stretch the shot to its full pixel height. */
   height: auto;
   border-radius: 24px;
-  border: 7px solid #0f1a2e;
-  background: #0f1a2e;
-  box-shadow: 0 18px 30px rgba(12, 24, 48, 0.24);
+  border: 7px solid var(--bezel);
+  background: var(--bezel);
+  box-shadow: var(--track-shadow);
   scroll-snap-align: start;
 }
 
@@ -560,7 +613,7 @@ a:hover {
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 28px 0;
-  background: rgba(255, 255, 255, 0.65);
+  background: var(--footer-bg);
 }
 
 .footer-nav {
@@ -598,7 +651,7 @@ a:hover {
 
 .social-card:hover {
   text-decoration: none;
-  border-color: rgba(15, 123, 255, 0.35);
+  border-color: var(--social-hover);
   transform: translateY(-1px);
 }
 
