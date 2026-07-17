@@ -61,9 +61,11 @@
      * ------------------------------------------------------------------ */
     var STORES = {
       ios: {
-        released: false,
-        // Replace APPLE_ID_HERE with the numeric App Store ID, then flip released.
-        url: 'https://apps.apple.com/app/idAPPLE_ID_HERE'
+        // Live since 2026-07-17.
+        released: true,
+        // No country prefix on purpose: Apple then routes each visitor to their
+        // own storefront. A /us/ or /fr/ path would pin everyone to one country.
+        url: 'https://apps.apple.com/app/id6749860171'
       },
       android: {
         // URL is already final — it derives from the package name.
