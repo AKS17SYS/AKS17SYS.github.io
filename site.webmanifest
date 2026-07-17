@@ -1,12 +1,19 @@
 {
+  "id": "/",
   "name": "Quiz Tempo",
   "short_name": "QuizTempo",
+  "description": "Quiz de culture générale: 54 885 questions relues et corrigées, 17 univers, défi quotidien et défis entre amis.",
+  "lang": "fr",
+  "dir": "ltr",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#f4f8ff",
   "theme_color": "#081833",
+  "categories": ["games", "education", "entertainment"],
   "icons": [
-    { "src": "assets/logo-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "assets/logo-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+    { "src": "/assets/logo-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/logo-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
   ]
 }

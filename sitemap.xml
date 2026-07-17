@@ -1,25 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://quiztempo.com/</loc></url>
-  <url><loc>https://quiztempo.com/en/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://quiztempo.com/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://quiztempo.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://quiztempo.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quiztempo.com/" />
+  </url>
+  <url>
+    <loc>https://quiztempo.com/en/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://quiztempo.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://quiztempo.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quiztempo.com/" />
+  </url>
 
-  <url><loc>https://quiztempo.com/themes/</loc></url>
-  <url><loc>https://quiztempo.com/themes/histoire.html</loc></url>
-  <url><loc>https://quiztempo.com/themes/cinema.html</loc></url>
-  <url><loc>https://quiztempo.com/themes/sports.html</loc></url>
-  <url><loc>https://quiztempo.com/themes/science.html</loc></url>
-  <url><loc>https://quiztempo.com/themes/musique.html</loc></url>
-  <url><loc>https://quiztempo.com/themes/culture-generale.html</loc></url>
+  <url><loc>https://quiztempo.com/themes/</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://quiztempo.com/themes/histoire.html</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://quiztempo.com/themes/cinema.html</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://quiztempo.com/themes/sports.html</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://quiztempo.com/themes/science.html</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://quiztempo.com/themes/musique.html</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://quiztempo.com/themes/culture-generale.html</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
-  <url><loc>https://quiztempo.com/en/themes/</loc></url>
-  <url><loc>https://quiztempo.com/en/themes/history.html</loc></url>
-  <url><loc>https://quiztempo.com/en/themes/cinema.html</loc></url>
-  <url><loc>https://quiztempo.com/en/themes/sports.html</loc></url>
-  <url><loc>https://quiztempo.com/en/themes/science.html</loc></url>
-  <url><loc>https://quiztempo.com/en/themes/music.html</loc></url>
-  <url><loc>https://quiztempo.com/en/themes/general-knowledge.html</loc></url>
+  <url><loc>https://quiztempo.com/en/themes/</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://quiztempo.com/en/themes/history.html</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://quiztempo.com/en/themes/cinema.html</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://quiztempo.com/en/themes/sports.html</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://quiztempo.com/en/themes/science.html</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://quiztempo.com/en/themes/music.html</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://quiztempo.com/en/themes/general-knowledge.html</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
-  <url><loc>https://quiztempo.com/contact.html</loc></url>
-  <url><loc>https://quiztempo.com/privacy.html</loc></url>
-  <url><loc>https://quiztempo.com/terms.html</loc></url>
+  <url><loc>https://quiztempo.com/contact.html</loc><lastmod>2026-07-17</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://quiztempo.com/privacy.html</loc><lastmod>2026-07-17</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://quiztempo.com/terms.html</loc><lastmod>2026-07-17</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
+  <url><loc>https://quiztempo.com/en/contact.html</loc><lastmod>2026-07-17</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://quiztempo.com/en/privacy.html</loc><lastmod>2026-07-17</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://quiztempo.com/en/terms.html</loc><lastmod>2026-07-17</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>

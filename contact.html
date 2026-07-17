@@ -1,12 +1,36 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact - Quiz Tempo</title>
-  <meta name="description" content="Contact the Quiz Tempo team." />
+  <meta name="description" content="Contactez l'équipe Quiz Tempo." />
   <link rel="canonical" href="https://quiztempo.com/contact.html" />
-  <link rel="icon" href="assets/logo-favicon.png" type="image/png" />
+  <link rel="alternate" hreflang="fr" href="https://quiztempo.com/contact.html" />
+  <link rel="alternate" hreflang="en" href="https://quiztempo.com/en/contact.html" />
+  <link rel="alternate" hreflang="x-default" href="https://quiztempo.com/contact.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Quiz Tempo" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:title" content="Contact - Quiz Tempo" />
+  <meta property="og:description" content="Contactez l'équipe Quiz Tempo." />
+  <meta property="og:image" content="https://quiztempo.com/assets/og-fr.png" />
+  <meta property="og:image:alt" content="Quiz Tempo — Des parties courtes. Des questions qui restent justes." />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://quiztempo.com/contact.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact - Quiz Tempo" />
+  <meta name="twitter:description" content="Contactez l'équipe Quiz Tempo." />
+  <meta name="twitter:image" content="https://quiztempo.com/assets/og-fr.png" />
+
+  <link rel="icon" href="assets/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="assets/logo-favicon.png" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="assets/logo-192.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#081833" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Sora:wght@500;700&display=swap" rel="stylesheet" />
@@ -14,14 +38,17 @@
   <script defer src="js/main.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
   <header class="site-header">
     <div class="container row space-between center">
-      <a class="brand" href="./"><img src="assets/logo@2x.png" alt="Quiz Tempo logo" class="logo"><span class="brand-name">Quiz Tempo</span></a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">Menu</button>
-      <nav id="site-nav" class="site-nav" aria-label="Primary">
-        <a href="./">Home</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+      <a class="brand" href="./"><img src="assets/logo@2x.png" alt="Logo Quiz Tempo" class="logo" /><span class="brand-name">Quiz Tempo</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Ouvrir le menu">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Navigation principale">
+        <a href="./">Accueil</a>
+        <a href="privacy.html">Confidentialité</a>
+        <a href="terms.html">Conditions</a>
+        <a href="en/contact.html" lang="en" hreflang="en">EN</a>
       </nav>
     </div>
   </header>
@@ -30,30 +57,34 @@
     <div class="container narrow stack-lg">
       <div class="stack">
         <p class="eyebrow">Contact</p>
-        <h1>Reach the Quiz Tempo team</h1>
-        <p class="muted">Questions, product feedback, bug reports, or business inquiries: we usually reply quickly by email.</p>
+        <h1>Contactez l'équipe Quiz Tempo</h1>
+        <p class="muted">Questions, retours sur le produit, signalements de bugs ou demandes professionnelles : nous répondons généralement rapidement par e-mail.</p>
       </div>
 
       <div class="card p-lg stack">
-        <p><strong>Direct email:</strong> <a class="btn" href="mailto:support@quiztempo.com">support@quiztempo.com</a></p>
+        <p><strong>E-mail direct :</strong> <a class="btn" href="mailto:support@quiztempo.com">support@quiztempo.com</a></p>
         <hr class="sep" />
         <form action="https://formsubmit.co/support@quiztempo.com" method="POST" class="stack">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="Quiz Tempo website contact">
-          <label class="field">
-            <span>Name</span>
-            <input name="name" required />
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://quiztempo.com/contact-thanks.html">
+          <!-- FormSubmit rejette tout envoi dans lequel ce champ est rempli. Les robots le remplissent ; les humains ne le voient jamais. -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="field" for="contact-name">
+            <span>Nom</span>
+            <input id="contact-name" name="name" autocomplete="name" required />
           </label>
-          <label class="field">
-            <span>Email</span>
-            <input type="email" name="email" required />
+          <label class="field" for="contact-email">
+            <span>E-mail</span>
+            <input id="contact-email" type="email" name="email" autocomplete="email" required />
           </label>
-          <label class="field">
+          <label class="field" for="contact-message">
             <span>Message</span>
-            <textarea name="message" rows="6" required></textarea>
+            <textarea id="contact-message" name="message" rows="6" required></textarea>
           </label>
-          <button class="btn primary">Send message</button>
-          <p class="muted sm">Please avoid sharing sensitive personal information in this form.</p>
+          <button class="btn primary" type="submit">Envoyer le message</button>
+          <p class="muted sm">Merci de ne pas communiquer d'informations personnelles sensibles dans ce formulaire.</p>
         </form>
       </div>
     </div>
@@ -62,9 +93,9 @@
   <footer class="site-footer">
     <div class="container row space-between wrap">
       <small>© <span id="year"></span> Quiz Tempo</small>
-      <nav class="footer-nav">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+      <nav class="footer-nav" aria-label="Pied de page">
+        <a href="privacy.html">Confidentialité</a>
+        <a href="terms.html">Conditions</a>
       </nav>
     </div>
   </footer>

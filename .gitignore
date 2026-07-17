@@ -1,0 +1,11 @@
+# Local agent tooling — never publish: this repo is public and serves GitHub Pages.
+.claude/
+_bmad/
+_bmad-output/
+
+# Empty local scaffolding
+design-artifacts/
+docs/
+
+# macOS
+.DS_Store

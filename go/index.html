@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Télécharger Quiz Tempo</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="Téléchargez Quiz Tempo sur iOS et Android." />
+  <link rel="icon" href="../assets/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="../assets/logo-favicon.png" type="image/png" sizes="48x48" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Sora:wght@600;800&display=swap" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <meta name="theme-color" content="#081833" />
+</head>
+<body>
+  <main id="main" class="section go-page">
+    <div class="container narrow go-card">
+      <img src="../assets/logo@2x.png" alt="" class="go-logo" width="64" height="64" />
+
+      <!-- Shown while we decide where to send the visitor. -->
+      <div id="go-redirect" hidden>
+        <h1>Ouverture du store…</h1>
+        <p class="muted">Si rien ne se passe, <a id="go-manual" href="../">choisissez votre plateforme</a>.</p>
+      </div>
+
+      <!-- Shown on desktop and on unknown platforms. -->
+      <div id="go-choice" hidden>
+        <h1>Télécharger Quiz Tempo</h1>
+        <p class="lead">54 885 questions de culture générale. Choisissez votre plateforme.</p>
+        <div class="cta-row go-cta">
+          <a class="btn primary" id="go-ios" hidden rel="noopener">App Store — iOS</a>
+          <a class="btn primary" id="go-android" hidden rel="noopener">Google Play — Android</a>
+        </div>
+      </div>
+
+      <!-- Shown before a platform is released. -->
+      <div id="go-soon" hidden>
+        <h1>Bientôt disponible</h1>
+        <p class="lead" id="go-soon-text">Quiz Tempo arrive très bientôt. Suivez le lancement pour être prévenu en premier.</p>
+        <div class="cta-row go-cta">
+          <a class="btn primary" href="https://instagram.com/quiz.tempo" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="btn" href="https://www.tiktok.com/@quiztempoapp" target="_blank" rel="noopener noreferrer">TikTok</a>
+        </div>
+      </div>
+
+      <p class="go-back"><a href="../">← Retour sur quiztempo.com</a></p>
+    </div>
+  </main>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ------------------------------------------------------------------
+     * THE ONLY PLACE IN THE SITE THAT KNOWS THE STORE URLS.
+     * On publication day: set `released: true` and paste the iOS appId.
+     * Every download CTA on every page routes through here.
+     * ------------------------------------------------------------------ */
+    var STORES = {
+      ios: {
+        released: false,
+        // Replace APPLE_ID_HERE with the numeric App Store ID, then flip released.
+        url: 'https://apps.apple.com/app/idAPPLE_ID_HERE'
+      },
+      android: {
+        // URL is already final — it derives from the package name.
+        released: false,
+        url: 'https://play.google.com/store/apps/details?id=com.aksystem.quiztempo'
+      }
+    };
+
+    var TRACK_ENDPOINT = 'https://europe-west1-quizgame-abeno17.cloudfunctions.net/trackGoClickV1';
+
+    var params = new URLSearchParams(window.location.search);
+
+    // Where the visitor came from (tiktok_fr, ig_en, theme_histoire...). Kept short and safe.
+    // Charset matches the server: Firestore field paths break on dots.
+    var src = (params.get('src') || 'direct').slice(0, 40).replace(/[^a-zA-Z0-9_-]/g, '') || 'direct';
+
+    function detect() {
+      var forced = params.get('p');
+      if (forced === 'ios' || forced === 'android') return forced;
+
+      var ua = navigator.userAgent || '';
+      if (/android/i.test(ua)) return 'android';
+      // iPadOS 13+ reports as Macintosh, so check for touch support too.
+      if (/iPad|iPhone|iPod/.test(ua)) return 'ios';
+      if (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1) return 'ios';
+      return 'desktop';
+    }
+
+    // Fire-and-forget. No cookie, no identifier, no IP stored server-side —
+    // the function aggregates date + src + platform into a counter.
+    function track(platform, outcome) {
+      var body = JSON.stringify({ src: src, platform: platform, outcome: outcome });
+      try {
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon(TRACK_ENDPOINT, new Blob([body], { type: 'text/plain' }));
+          return;
+        }
+        fetch(TRACK_ENDPOINT, { method: 'POST', body: body, keepalive: true, mode: 'no-cors' });
+      } catch (e) {
+        /* tracking must never block a download */
+      }
+    }
+
+    function show(id) {
+      ['go-redirect', 'go-choice', 'go-soon'].forEach(function (node) {
+        var el = document.getElementById(node);
+        if (el) el.hidden = node !== id;
+      });
+    }
+
+    var platform = detect();
+    var anyReleased = STORES.ios.released || STORES.android.released;
+
+    // Point the manual buttons at whatever is live, and hide what isn't.
+    ['ios', 'android'].forEach(function (key) {
+      var el = document.getElementById('go-' + key);
+      if (!el) return;
+      if (STORES[key].released) {
+        el.href = STORES[key].url;
+        el.hidden = false;
+        el.addEventListener('click', function () { track(key, 'manual'); });
+      } else {
+        el.hidden = true;
+      }
+    });
+
+    if (!anyReleased) {
+      track(platform, 'prelaunch');
+      show('go-soon');
+      return;
+    }
+
+    if ((platform === 'ios' || platform === 'android') && STORES[platform].released) {
+      track(platform, 'redirect');
+      show('go-redirect');
+      var manual = document.getElementById('go-manual');
+      if (manual) manual.href = STORES[platform].url;
+      window.location.replace(STORES[platform].url);
+      return;
+    }
+
+    // Desktop, or a platform whose store isn't live yet: let them choose.
+    track(platform, 'choice');
+    show('go-choice');
+  })();
+  </script>
+
+  <noscript>
+    <div class="container narrow go-card">
+      <h1>Télécharger Quiz Tempo</h1>
+      <p class="lead">Cette page a besoin de JavaScript pour vous envoyer vers le bon store.</p>
+      <p class="cta-row go-cta"><a class="btn primary" href="../">Retour à l'accueil</a></p>
+    </div>
+  </noscript>
+</body>
+</html>
