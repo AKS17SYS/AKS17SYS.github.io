@@ -207,19 +207,21 @@ a:hover {
 }
 
 .hero {
-  padding-top: 86px;
+  padding-top: 48px;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.08fr 0.92fr;
-  gap: 40px;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
   align-items: center;
 }
 
 .hero-copy h1 {
-  margin-top: 14px;
-  font-size: clamp(2rem, 4.8vw, 3.6rem);
+  margin-top: 12px;
+  /* A phone shot is 2.17:1, so it always out-heights the copy column. Keeping
+     the h1 under ~3 lines is what stops the CTA falling below the fold. */
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem);
 }
 
 .lead {
@@ -281,12 +283,13 @@ a:hover {
 
 .hero-visual {
   position: relative;
-  min-height: 520px;
 }
 
 .phone-stack {
   position: relative;
-  width: min(100%, 420px);
+  /* 300px x 2.17 = ~650px tall. At the old 420px it rendered ~913px, which
+     centred the copy against dead space and pushed the CTA off screen. */
+  width: min(100%, 300px);
   margin-inline: auto;
 }
 
